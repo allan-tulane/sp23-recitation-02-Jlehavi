@@ -1,7 +1,7 @@
 # CMPS 2200  Recitation 02
 
-**Name (Team Member 1):**_________________________  
-**Name (Team Member 2):**_________________________
+**Name (Team Member 1):**_____Jack Lehavi______  
+**Name (Team Member 2):**_____Alex Motyka________
 
 In this recitation, we will investigate recurrences. 
 To complete this recitation, follow the instructions in this document. Some of your answers will go in this file, and others will require you to edit `main.py`.
@@ -48,11 +48,31 @@ where $W(1) = 1$.
 
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
-**TODO: your answer goes here**
+f(n) = 1 implies the reccurence W(n) = aW(n/b) + 1 => O(n)
+
+f(n) = log n implies the reccurence W(n) = aW(n/b) + log n => O(n)
+
+f(n) = n implies the reccurence W(n) = aW(n/b) + n => O(n)
+
+The following table displays input values of n (holding a = b = 2 constant for simplicity) and the resulting outputs of W(n) with their respective f(n) functions:
+
+n     f(n) = 1     f(n) = log n     f(n) = n
+10     15           3.602            36
+100    127          47.341           652
+1000   1023         416.752          9120
+10000  16383        5062.077         133456
+
+The output of f(n) = n increased most quickly, as was expected. f(n) grew more quickly than f(n) = log n.
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
-**TODO: your answer goes here**
+We used a=4 and b=2 so c would be calculated relative to log_2(4)=2.
+for the value less than the logarithm, we used c=1, and for the value greater, we used c=3
+
+Output from modified compare_work (formatted as (n, c < \log_b, c > \log_b, c = \log_b)):
+[(10, 126, 177, 228), (20, 524, 731, 934), (50, 2518, 2761, 3964), (100, 10172, 11147, 15958), (1000, 697496, 698327, 1047298), (5000, 34237688, 49982519, 61855586), (10000, 136960752, 199940079, 247432346)]
+
+c < \log_b grew the slowest out of the 3 work functions. This was to be expected, as its work function was f(n) = n, and the others has higher order. 
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
