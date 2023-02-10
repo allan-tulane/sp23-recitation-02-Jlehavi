@@ -48,11 +48,11 @@ where $W(1) = 1$.
 
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
-f(n) = 1 implies the reccurence W(n) = aW(n/b) + 1 => O(n)
+f(n) = 1 implies the reccurence W(n) = aW(n/b) + 1
 
-f(n) = log n implies the reccurence W(n) = aW(n/b) + log n => O(n)
+f(n) = log n implies the reccurence W(n) = aW(n/b) + log n
 
-f(n) = n implies the reccurence W(n) = aW(n/b) + n => O(n)
+f(n) = n implies the reccurence W(n) = aW(n/b) + n
 
 The following table displays input values of n (holding a = b = 2 constant for simplicity) and the resulting outputs of W(n) with their respective f(n) functions:
 

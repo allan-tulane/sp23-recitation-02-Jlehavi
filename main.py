@@ -108,5 +108,5 @@ def test_compare_work():
 	print(res)
 
 #def test_compare_span():
-	# TODO
+
 #"""
